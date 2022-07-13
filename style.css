@@ -77,6 +77,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .buttons {
@@ -86,10 +87,30 @@ body {
     font-size: 20px;
 }
 
-.bi-dash-lg{
-    color:red;
+.bi-dash-lg {
+    color: red;
 }
 
-.bi-plus-lg{
+.bi-plus-lg {
     color: green;
+}
+
+
+
+
+/**
+* ? Media Queries
+**/
+
+@media (max-width: 1000px) {
+    .shop {
+        grid-template-columns: repeat(2, 223px);  
+    }
+}
+
+
+@media (max-width: 500px) {
+    .shop {
+        grid-template-columns: repeat(1, 223px);  
+    }
 }
