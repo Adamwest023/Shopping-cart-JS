@@ -1,5 +1,5 @@
 let shop = document.getElementById('shop');
-let shopItemsData = [
+let shopItemsData = [ 
 
     {
         id: "casualShirt",
@@ -23,7 +23,7 @@ let shopItemsData = [
         img: "images/img-3.jpg "
     },
     {
-        id: "mensSuit ",
+        id: "mensSuit",
         name: "Men's Suit",
         price: 300,
         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing",
@@ -61,23 +61,31 @@ generateShop();
 
 let increment = (id) => {
     let selectedItem = id;
+    //searches the basket to see if the item already exists
     let search = basket.find((x) => x.id === selectedItem.id)
 
+    //adds items to the basket 
     if (search === undefined) {
         basket.push({
             id: selectedItem.id,
             item: 1,
         });
-    } else { search.item++ }; 
-
+    } else { search.item++ };
     console.log(basket);
 };
 
 let decrement = (id) => {
     let selectedItem = id;
-    console.log(selectedItem.id);
+    //searches the basket to see if the item already exists
+    let search = basket.find((x) => x.id === selectedItem.id)
 
-    basket.pop();
+    //adds items to the basket 
+    if (search === undefined) {
+        basket.push({
+            id: selectedItem.id,
+            item: 1,
+        });
+    } else { search.item-- };
     console.log(basket);
 };
 
