@@ -1,5 +1,5 @@
 let shop = document.getElementById('shop');
-let shopItemsData = [ 
+let shopItemsData = [
 
     {
         id: "casualShirt",
@@ -71,7 +71,8 @@ let increment = (id) => {
             item: 1,
         });
     } else { search.item++ };
-    console.log(basket);
+    update(selectedItem.id);
+    // console.log(basket); 
 };
 
 let decrement = (id) => {
@@ -80,14 +81,23 @@ let decrement = (id) => {
     let search = basket.find((x) => x.id === selectedItem.id)
 
     //adds items to the basket 
-    if (search === undefined) {
-        basket.push({
-            id: selectedItem.id,
-            item: 1,
-        });
+    if (search.item === 0) {
+        return;
     } else { search.item-- };
-    console.log(basket);
+    // console.log(basket);
+    update(selectedItem.id);
 };
 
-let update = () => { };
+let update = (id) => {
+    let search = basket.find((x) => x.id === id)
+    // console.log(search.item);
+    document.getElementById(id).innerHTML = search.item;
+    caculation()
+};
+
+//function to caluculate total items for the cart
+let caculation = () => {
+    let cartIcon = document.getElementById("cartAmount");
+    cartIcon.innerHTML = basket.map((x) => x.item).reduce((x,y) =>x+y,0 );
+}
 
