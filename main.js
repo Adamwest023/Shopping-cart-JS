@@ -75,23 +75,29 @@ let increment = (id) => {
         });
     } else { search.item++ };
 
-    localStorage.setItem("data", JSON.stringify(basket));
     update(selectedItem.id);
-    // console.log(basket); 
+    localStorage.setItem("data", JSON.stringify(basket));
+
 };
 
 let decrement = (id) => {
     let selectedItem = id;
     //searches the basket to see if the item already exists
-    let search = basket.find((x) => x.id === selectedItem.id)
+    let search = basket.find((x) => x.id === selectedItem.id) 
+
+    if (search === undefined) return;
+    else if (search.item === 0) return;
 
     //adds items to the basket 
     if (search.item === 0) {
         return;
     } else { search.item-- };
-    // console.log(basket);
-    localStorage.setItem("data", JSON.stringify(basket));
+    
     update(selectedItem.id);
+
+    //filters through our local storage to check if there is a number in the item or if it needs to be deleted
+    basket = basket.filter((x) => x.item !== 0);
+    localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let update = (id) => {

@@ -11,6 +11,10 @@
 
 body {
     font-family: sans-serif;
+}  
+
+i{
+    cursor: pointer; 
 }
 
 /**
