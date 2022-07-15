@@ -112,7 +112,9 @@ a {
     margin-bottom: 20px;
 }
 
-.homeBtn {
+.homeBtn,
+.checkout,
+.removeAll {
     background-color: #212529;
     color: white;
     border: none;
@@ -122,6 +124,58 @@ a {
     margin-top: 10px;
 }
 
+.bi-x-lg {
+    color: red;
+    font-weight: bold;
+}
+
+/**
+* ! Styles for shopping cart buttons
+**/
+.shopping-cart {
+    display: grid;
+    grid-template-columns: repeat(2, 3 20px);
+    justify-content: center;
+    gap: 15px;
+}
+
+/**
+* ! Styles for shopping cart items
+**/
+.cart-item {
+    border: 2px solid #212529;
+    border-radius: 5px;
+    display: flex;
+}
+
+.title-price-x {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 195px;
+}
+
+.title-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-item-price {
+    background-color: #212529;
+    color: white;
+    border: 4px;
+    padding: 3px 6px;
+
+}
+
+.checkout {
+    background-color: green;
+}
+
+.removeAll {
+    background-color: red;
+}
 
 /**
 * ? Media Queries
