@@ -111,6 +111,7 @@ let update = (id) => {
     // console.log(search.item);
     document.getElementById(id).innerHTML = search.item;
     calculation();
+    totalAmount();
 };
 
 
@@ -119,23 +120,33 @@ let removeItem = (id) => {
     // console.log(selectedItem.id);
     basket = basket.filter((x) => x.id !== selectedItem.id);
     generateCartItems();
+    totalAmount();
+    calculation();
     localStorage.setItem("data", JSON.stringify(basket));
 };
+
+let clearCart = () => {
+    basket = [];
+    generateCartItems();
+    calculation();
+    localStorage.setItem("data", JSON.stringify(basket));
+
+}
 
 let totalAmount = () => {
     if (basket.length !== 0) {
         let amount = basket.map((x) => {
             //destructing the  array
-            let {item, id} = x ;
+            let { item, id } = x;
             let search = shopItemsData.find((y) => y.id === id) || [];
             return item * search.price;
 
             //add the reduce function to allow the numbers to be counted correctly
-        }).reduce((x,y) => x+y,0);
+        }).reduce((x, y) => x + y, 0);
         label.innerHTML = `
         <h2>Total Bill : $ ${amount}</h2>
         <button class="checkout">Checkout</button>
-        <button class="removeAll">Clear Cart</button>
+        <button onclick="clearCart()" class="removeAll">Clear Cart</button>
         `;
     } else return
 }
