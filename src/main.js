@@ -53,7 +53,7 @@ let increment = (id) => {
 let decrement = (id) => {
     let selectedItem = id;
     //searches the basket to see if the item already exists
-    let search = basket.find((x) => x.id === selectedItem.id) 
+    let search = basket.find((x) => x.id === selectedItem.id)
 
     if (search === undefined) return;
     else if (search.item === 0) return;
@@ -62,7 +62,7 @@ let decrement = (id) => {
     if (search.item === 0) {
         return;
     } else { search.item-- };
-    
+
     update(selectedItem.id);
 
     //filters through our local storage to check if there is a number in the item or if it needs to be deleted
@@ -74,13 +74,13 @@ let update = (id) => {
     let search = basket.find((x) => x.id === id)
     // console.log(search.item);
     document.getElementById(id).innerHTML = search.item;
-    caculation();
+    calculation();
 };
 
 //function to caluculate total items for the cart
-let caculation = () => {
+let calculation = () => {
     let cartIcon = document.getElementById("cartAmount");
     cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
 }
 
-caculation();
+calculation();
