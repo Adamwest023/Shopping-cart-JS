@@ -1,35 +1,5 @@
 let shop = document.getElementById('shop');
-let shopItemsData = [
 
-    {
-        id: "casualShirt",
-        name: "Casual Shirt",
-        price: 45,
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        img: "images/img-1.jpg "
-    },
-    {
-        id: "buisShirt",
-        name: "Office Shirt",
-        price: 100,
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        img: "images/img-2.jpg "
-    },
-    {
-        id: "teeShirt",
-        name: "T Shirt",
-        price: 25,
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        img: "images/img-3.jpg "
-    },
-    {
-        id: "mensSuit",
-        name: "Men's Suit",
-        price: 300,
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        img: "images/img-4.jpg "
-    }
-]
 
 //if there is data in our local storage the basket will reflect that, if it is not it will be an empty array
 let basket = JSON.parse(localStorage.getItem("data")) || [];
